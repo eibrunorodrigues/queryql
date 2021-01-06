@@ -33,7 +33,7 @@ The following rules will be aplied to change the type of a parameter:
   Example: is_removed=true
 
 * **datetime type**: The parameter value is automatically typed:
-  Regex Rule: (?:\d{4}-\d{2}-\d{2}(?: T([Z]$)?(?:[.+]?\d{2,3})?(?:-?\d{2}:?\d{2}|:\d{2})?)?)$
+  Regex Rule: (?:\d{4}-\d{2}-\d{2}(?:[ T](?:\d{2}:\d{2}:\d{2}|\d{2}:\d{2}$)([Z]$)?(?:[.+]?\d{2,3})?(?:-?\d{2}:?\d{2}|:\d{2})?)?)$
   Example: product_id=2019-02-03 10:15:21.000
 
 * **string type**: You can type value as string passing a text or wrapping the value in double-quotes.
