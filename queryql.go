@@ -25,7 +25,7 @@ const (
 )
 
 type Handle struct {
-	Result                []structs.Filter
+	Result []structs.Filter
 
 	avoidTypingParameters []string
 	fieldsToRename        map[string]string
@@ -103,11 +103,7 @@ func (h *Handle) AppendToResult(key string, value string, isSpecialFilter bool, 
 }
 
 func (h *Handle) appendItem(operation string, originalValue string, parameterKey string, group structs.KeyValuePair, isSpecialFilter bool) error {
-	for key := range h.fieldsToRename {
-		if key == parameterKey {
-			parameterKey = key
-		}
-	}
+	replaceValueIfIsOnMap(&parameterKey, h.fieldsToRename)
 
 	var typedValue interface{}
 	var err error
@@ -293,4 +289,12 @@ func isAMatch(value string, rule string) bool {
 		return false
 	}
 	return true
+}
+
+func replaceValueIfIsOnMap(value *string, values map[string]string) {
+	for key := range values {
+		if key == *value {
+			*value = key
+		}
+	}
 }
