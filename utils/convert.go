@@ -3,7 +3,7 @@ package utils
 import (
 	"errors"
 	"fmt"
-	"github.com/eibrunorodrigues/parameter-handler/types"
+	"github.com/eibrunorodrigues/gitql/types"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"strconv"
 	"strings"
